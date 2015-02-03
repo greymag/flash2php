@@ -9,12 +9,12 @@
  */
 class F2PException extends Exception
 {
-	/**
-	 * Неизвестный сервис
-	 * @var int
-	 */
-	const ERRNO_UNKNOWN_SERVICE      = 19001;
-	/**
+    /**
+     * Неизвестный сервис
+     * @var int
+     */
+    const ERRNO_UNKNOWN_SERVICE      = 19001;
+    /**
      * Неизвестный метод
      * @var int
      */
@@ -24,12 +24,12 @@ class F2PException extends Exception
      * @var int
      */
     const ERRNO_WRONG_PARAMS         = 19003;
-	/**
+    /**
      * Неверное количество аргументов
      * @var int
      */
-    const ERRNO_WRONG_NUM_ARGS       = 19004;	
-	/**
+    const ERRNO_WRONG_NUM_ARGS       = 19004;   
+    /**
      * Вызов заблокирован функцией beforeFilter
      * @var int
      */
@@ -39,7 +39,7 @@ class F2PException extends Exception
      * @var int
      */
     const ERRNO_CALL_METHOD_ERROR    = 19006;   
-	/**
+    /**
      * Ошибка при исполнении метода
      * @var int
      */
@@ -55,34 +55,34 @@ class F2PException extends Exception
      * @var int
      */
     const ERRNO_NULL_RETURN = 19009; 
-	
-	/**
-	 * @var string
-	 */
-	//protected $_error;
-	/**
+    
+    /**
+     * @var string
+     */
+    //protected $_error;
+    /**
      * @var int
      */
     //protected $_errno;
-	
-	/**	
-	 * @param $error Текст сообщения об ошибке
-	 * @param $errno Номер ошибки
-	 */
-	function __construct( $error = '', $errno = 0 )
-	{
-		parent::__construct( $error, $errno );
-		$this->_error = $error;
-		$this->_errno = $errno;
-	}
-	
-	function __get( $var )
-	{
-		switch( $var ) 
-		{
-			case 'error' : return $this->getMessage();//$this->_error;
-			case 'errno' : return $this->getCode();//$this->_errno;
-		}
-	}
+    
+    /** 
+     * @param $error Текст сообщения об ошибке
+     * @param $errno Номер ошибки
+     */
+    function __construct( $error = '', $errno = 0 )
+    {
+        parent::__construct( $error, $errno );
+        $this->_error = $error;
+        $this->_errno = $errno;
+    }
+    
+    function __get( $var )
+    {
+        switch( $var ) 
+        {
+            case 'error' : return $this->getMessage();//$this->_error;
+            case 'errno' : return $this->getCode();//$this->_errno;
+        }
+    }
 }
 ?>

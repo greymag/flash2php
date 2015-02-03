@@ -24,7 +24,8 @@ require_once( F2P_ROOT . 'core/Flash2PHP.php' );
 $f2p = new Flash2PHP();
 
 // удаляем слэши если надо
-if (get_magic_quotes_gpc()) {
+if (get_magic_quotes_gpc()) 
+{
     $process = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
     while (list($key, $val) = each($process)) {
       foreach ($val as $k => $v) {
@@ -41,14 +42,14 @@ if (get_magic_quotes_gpc()) {
 }
 
 try {
-	if( count( $_POST ) == 0 ) $_POST = $_GET;
-	$f2p->init( $_POST );
-	unset( $_POST );
-	$f2p->execute();
+  if( count( $_POST ) == 0 ) $_POST = $_GET;
+  $f2p->init( $_POST );
+  unset( $_POST );
+  $f2p->execute();
 } catch( F2PException $e ) {
   $f2p->exception( $e );
 } catch( Exception $e ) {
-	$f2p->simpleException( $e );
+  $f2p->simpleException( $e );
 }
 
 ?>
